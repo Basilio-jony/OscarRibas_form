@@ -1,0 +1,11 @@
+A:\EXERCICIOSC#\EXER2\AULA2\bin\Debug\AULA2.exe.config
+A:\EXERCICIOSC#\EXER2\AULA2\bin\Debug\AULA2.exe
+A:\EXERCICIOSC#\EXER2\AULA2\bin\Debug\AULA2.pdb
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.csproj.AssemblyReference.cache
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.Form1.resources
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.Properties.Resources.resources
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.csproj.GenerateResource.cache
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.csproj.CoreCompileInputs.cache
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.exe
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.pdb
+A:\EXERCICIOSC#\EXER2\AULA2\obj\Debug\AULA2.F_cursos.resources
