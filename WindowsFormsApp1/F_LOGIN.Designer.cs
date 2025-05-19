@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Password = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // textBox2
+            // Password
             // 
-            this.textBox2.BackColor = System.Drawing.Color.LightGray;
-            this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Gray;
-            this.textBox2.Location = new System.Drawing.Point(335, 295);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(436, 36);
-            this.textBox2.TabIndex = 14;
-            this.textBox2.Text = "Escreve aqui";
+            this.Password.BackColor = System.Drawing.Color.LightGray;
+            this.Password.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Password.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password.ForeColor = System.Drawing.Color.Gray;
+            this.Password.Location = new System.Drawing.Point(335, 295);
+            this.Password.Margin = new System.Windows.Forms.Padding(4);
+            this.Password.Multiline = true;
+            this.Password.Name = "Password";
+            this.Password.Size = new System.Drawing.Size(436, 36);
+            this.Password.TabIndex = 14;
+            this.Password.Text = "Escreve aqui";
+            this.Password.UseSystemPasswordChar = true;
+            this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
             // label5
             // 
@@ -64,19 +65,20 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Login";
             // 
-            // textBox1
+            // Nome
             // 
-            this.textBox1.BackColor = System.Drawing.Color.LightGray;
-            this.textBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.textBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gray;
-            this.textBox1.Location = new System.Drawing.Point(335, 210);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(437, 36);
-            this.textBox1.TabIndex = 12;
-            this.textBox1.Text = "Escreve aqui";
+            this.Nome.BackColor = System.Drawing.Color.LightGray;
+            this.Nome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Nome.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nome.ForeColor = System.Drawing.Color.Gray;
+            this.Nome.Location = new System.Drawing.Point(335, 210);
+            this.Nome.Margin = new System.Windows.Forms.Padding(4);
+            this.Nome.Multiline = true;
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(437, 36);
+            this.Nome.TabIndex = 12;
+            this.Nome.Text = "Escreve aqui";
+            this.Nome.TextChanged += new System.EventHandler(this.Nome_TextChanged);
             // 
             // button1
             // 
@@ -87,7 +89,7 @@
             this.button1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(431, 393);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 43);
             this.button1.TabIndex = 11;
@@ -102,9 +104,9 @@
             this.label2.Location = new System.Drawing.Point(331, 266);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 29);
+            this.label2.Size = new System.Drawing.Size(110, 29);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Número de BI";
+            this.label2.Text = "PassWord";
             // 
             // label1
             // 
@@ -117,20 +119,7 @@
             this.label1.Size = new System.Drawing.Size(161, 29);
             this.label1.TabIndex = 9;
             this.label1.Text = "Nome completo";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
-            this.checkBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.checkBox1.Location = new System.Drawing.Point(335, 352);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(459, 21);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "Quando entrar só podes sair depois de concluir o seu teste";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // F_LOGIN
             // 
@@ -139,17 +128,16 @@
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.tela_cadasro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Password);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Nome);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "F_LOGIN";
-            this.Text = "F_LOGIN";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.F_LOGIN_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -158,12 +146,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
