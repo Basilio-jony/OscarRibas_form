@@ -37,6 +37,8 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.login = new System.Windows.Forms.LinkLabel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -159,6 +161,16 @@
             this.login.Text = "Clique aqui para Login";
             this.login.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.login_LinkClicked);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(143, 318);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(842, 245);
+            this.dataGridView1.TabIndex = 12;
+            // 
             // F_CADASTRO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -167,6 +179,7 @@
             this.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.tela_cadasro;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1041, 667);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.login);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox2);
@@ -185,6 +198,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Formulario de cadasttro";
             this.Load += new System.EventHandler(this.F_CADASTRO_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +215,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.LinkLabel login;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

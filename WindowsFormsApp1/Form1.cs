@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Drawing.Text;
 
 namespace WindowsFormsApp1
 {
@@ -26,7 +27,7 @@ namespace WindowsFormsApp1
 
         private void F_CADASTRO_Load(object sender, EventArgs e)
         {
-
+            carregarDados();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -36,6 +37,7 @@ namespace WindowsFormsApp1
                 string bi = textBox2.Text.Trim();
                 string periodo = comboBox1.SelectedItem.ToString();
 
+                //criar a senha
                 string letras = "";
                 if (!string.IsNullOrEmpty(nome))
                 {
@@ -47,7 +49,7 @@ namespace WindowsFormsApp1
                     {
                         letras = partes[0].Substring(0, Math.Min(2, partes[0].Length)).ToLower();
                     }
-                    string senha = "123456789" + letras;
+                    string senha = "123456789" + letras; //ate aqui cria a senha
 
                     conexao c = new conexao();
                     SqlConnection conn = c.Abrir();
@@ -75,10 +77,32 @@ namespace WindowsFormsApp1
         {
             
                 F_LOGIN login = new F_LOGIN();
-                MessageBox.Show("Abrindo login...");
+                
                 login.Show();
                 this.Hide();
                        
+        }
+
+        private void carregarDados()
+        {
+            try
+            {
+                conexao c = new conexao();
+                using (SqlConnection conn = c.Abrir())
+                {
+                    string sql = "SELECT * FROM datas_exames";
+                    using (SqlDataAdapter da = new SqlDataAdapter(sql, conn))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dataGridView1.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+            }
         }
     }
 }

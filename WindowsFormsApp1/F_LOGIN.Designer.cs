@@ -48,7 +48,6 @@
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(436, 36);
             this.Password.TabIndex = 14;
-            this.Password.Text = "Escreve aqui";
             this.Password.UseSystemPasswordChar = true;
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);
             // 
@@ -77,7 +76,6 @@
             this.Nome.Name = "Nome";
             this.Nome.Size = new System.Drawing.Size(437, 36);
             this.Nome.TabIndex = 12;
-            this.Nome.Text = "Escreve aqui";
             this.Nome.TextChanged += new System.EventHandler(this.Nome_TextChanged);
             // 
             // button1
