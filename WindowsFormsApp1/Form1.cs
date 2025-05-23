@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
 
         private void F_CADASTRO_Load(object sender, EventArgs e)
         {
-            carregarDados();
+           // carregarDados();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -37,20 +37,8 @@ namespace WindowsFormsApp1
                 string bi = textBox2.Text.Trim();
                 string periodo = comboBox1.SelectedItem.ToString();
 
-                //criar a senha
-                string letras = "";
-                if (!string.IsNullOrEmpty(nome))
-                {
-                    string[] partes = nome.Split(' ');
-                    if (partes.Length >= 2) {
-                        letras = partes[0][0].ToString().ToLower() + partes[1][0].ToString().ToLower();
-                    }
-                    else
-                    {
-                        letras = partes[0].Substring(0, Math.Min(2, partes[0].Length)).ToLower();
-                    }
-                    string senha = "123456789" + letras; //ate aqui cria a senha
-
+                string senha = senhaHelper.GerarSenha(nome);
+                
                     conexao c = new conexao();
                     SqlConnection conn = c.Abrir();
 
@@ -65,7 +53,7 @@ namespace WindowsFormsApp1
                     c.Fechar();
 
                     MessageBox.Show("Cadastro realizado com sucesso! Sua senha é: " + senha);
-                }
+                
             }
             catch (Exception ex)
             {
@@ -83,26 +71,45 @@ namespace WindowsFormsApp1
                        
         }
 
-        private void carregarDados()
+        /* private void carregarDados()
+         {
+             try
+             {
+                 conexao c = new conexao();
+                 using (SqlConnection conn = c.Abrir())
+                 {
+                     string sql = "SELECT * FROM datas_exames";
+                     using (SqlDataAdapter da = new SqlDataAdapter(sql, conn))
+                     {
+                         DataTable dt = new DataTable();
+                         da.Fill(dt);
+                         dataGridView1.DataSource = dt;
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+             }
+         }*/
+
+        public static class senhaHelper
         {
-            try
+            public static string GerarSenha(string nome)
             {
-                conexao c = new conexao();
-                using (SqlConnection conn = c.Abrir())
+                if (string.IsNullOrWhiteSpace(nome))
                 {
-                    string sql = "SELECT * FROM datas_exames";
-                    using (SqlDataAdapter da = new SqlDataAdapter(sql, conn))
-                    {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
-                        dataGridView1.DataSource = dt;
-                    }
+                    throw new ArgumentException("O nome nao pode estar vazio.");
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar dados: " + ex.Message);
+
+                string[] partes = nome.Trim().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries); 
+                string primeiraLetra = partes[0][0].ToString().ToLower();
+                string ultimaLetra = partes[partes.Length - 1][0].ToString().ToLower(); // ^1 significa o último elemento
+
+                return "123456789" + primeiraLetra + ultimaLetra;
             }
         }
+
+
     }
 }
