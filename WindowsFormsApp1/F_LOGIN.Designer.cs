@@ -44,9 +44,8 @@
             this.Password.ForeColor = System.Drawing.Color.Gray;
             this.Password.Location = new System.Drawing.Point(335, 295);
             this.Password.Margin = new System.Windows.Forms.Padding(4);
-            this.Password.Multiline = true;
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(436, 36);
+            this.Password.Size = new System.Drawing.Size(436, 31);
             this.Password.TabIndex = 14;
             this.Password.UseSystemPasswordChar = true;
             this.Password.TextChanged += new System.EventHandler(this.Password_TextChanged);

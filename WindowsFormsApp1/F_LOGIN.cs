@@ -23,34 +23,45 @@ namespace WindowsFormsApp1
             string nome = Nome.Text.Trim();
             string senha = Password.Text.Trim();
 
-            if (Nome.Text == "" || Password.Text == "")
+           if(string.IsNullOrWhiteSpace(nome) || string.IsNullOrWhiteSpace(senha))
             {
-                MessageBox.Show("Preencha todos os campos");
+                MessageBox.Show("Por favor, preencha todos os campos.");
                 return;
             }
 
             try
             {
                 conexao conexaoBD = new conexao();
-                SqlConnection conn = conexaoBD.Abrir();
-
-                string sql = "SELECT COUNT(*) FROM candidatos WHERE NomeCompleto = @nome AND Senha = @senha";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@nome", nome);
-                cmd.Parameters.AddWithValue("@senha", senha);
-
-                int resultado = (int)cmd.ExecuteScalar();
-
-                conexaoBD.Fechar();
-
-                if (resultado > 0)
+                using (SqlConnection conn = conexaoBD.Abrir())
                 {
-                    MessageBox.Show("Login realizado com sucesso!");
+                    string sql = "SELECT TOP 1 * FROM candidatos WHERE NomeCompleto = @nome AND Senha = @senha";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@nome", nome);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        SessaoUsuario.Id = (int)reader["Id"];
+                        SessaoUsuario.NomeCompleto = reader["NomeCompleto"].ToString();
+                        SessaoUsuario.NumeroBI = reader["NumeroBI"].ToString();
+                        SessaoUsuario.Periodo = reader["Perido"].ToString();
+                        SessaoUsuario.Senha = reader["Senha"].ToString();
+
+                        MessageBox.Show("Login Realizado com sucesso");
+
+                        //esta e a parte para chamar o formulario de dashboard ou perfil
+                       /* F_Perfil telaPerfil = new F_Perfil(); 
+                        telaPerfil.Show();
+                        this.Hide();*/
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nome ou senha incorretos.");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Nome ou senha incorretos.");
-                }
+                
             }
             catch(Exception ex)
             {
