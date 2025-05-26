@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
                         SessaoUsuario.Id = (int)reader["Id"];
                         SessaoUsuario.NomeCompleto = reader["NomeCompleto"].ToString();
                         SessaoUsuario.NumeroBI = reader["NumeroBI"].ToString();
-                        SessaoUsuario.Periodo = reader["Perido"].ToString();
+                        SessaoUsuario.Periodo = reader["Periodo"].ToString();
                         SessaoUsuario.Senha = reader["Senha"].ToString();
 
                         MessageBox.Show("Login Realizado com sucesso");
